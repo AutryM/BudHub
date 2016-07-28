@@ -1,0 +1,10 @@
+﻿<div class="dispensary-detail">
+    <h2>Products for {{dispensary.name}}</h2>
+    <ul>
+        <li *ngFor="let product of dispensary.products">
+            {{product.name}} : ${{product.cost}} <button (click)="addToPurchase(product)">Add</button> <button (click)="removeFromPurchase(product)">Remove</button>
+        </li>
+        <li>Cost:       {{ cost | currency:'USD':true:'1.2-2'}}</li>
+    </ul>
+
+</div>

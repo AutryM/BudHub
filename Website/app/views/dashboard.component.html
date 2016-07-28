@@ -1,0 +1,18 @@
+﻿<div class="dashboard-view">
+    <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+        <sebm-google-map-marker *ngFor="let dispensary of dispensaries" [latitude]="dispensary.lat" [longitude]="dispensary.lng" [title]="dispensary.name" (markerClick)="markerClicked(dispensary)">
+        </sebm-google-map-marker>
+    </sebm-google-map>
+    <h1>Who delivers in your neighborhood?</h1>
+    <h2>Enter your address below.</h2>
+    <div class="search">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="search"></label>
+                <input type="email" class="form-control" id="search" placeholder="Denver, CO">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+    <dispensary-detail *ngIf="selectedDispensary" [dispensary]="selectedDispensary"></dispensary-detail>
+</div>
